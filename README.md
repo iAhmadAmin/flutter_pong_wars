@@ -1,7 +1,9 @@
-@ -0,0 +1,81 @@
 # Pong Wars (Flutter Edition)
 
 Pong Wars is a creative take on the classic Pong game, where two balls bounce around the screen, each "painting" the canvas with its own color. The visual result is a mesmerizing battle between two colors that constantly shifts as the balls move across the screen.
+
+<img width="1377" alt="Screenshot 2025-05-28 at 10 12 33 PM" src="https://github.com/user-attachments/assets/bbbaeeed-d860-411d-ba05-43fd09d61aca" />
+
 
 ## Features
 
