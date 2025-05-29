@@ -259,8 +259,8 @@ class GamePainter extends CustomPainter {
 
         final color =
             gameModel.squares[i][j] == gameModel.dayColor
-                ? _hexToColor(gameModel.dayColor)
-                : _hexToColor(gameModel.nightColor);
+                ? gameModel.dayColor
+                : gameModel.nightColor;
 
         final paint = Paint()..color = color;
         canvas.drawRect(rect, paint);
@@ -284,7 +284,7 @@ class GamePainter extends CustomPainter {
       // Draw main ball
       final ballPaint =
           Paint()
-            ..color = _hexToColor(ball.ballColor)
+            ..color = ball.ballColor
             ..style = PaintingStyle.fill;
       canvas.drawCircle(Offset(ballX, ballY), radius, ballPaint);
 
@@ -301,11 +301,6 @@ class GamePainter extends CustomPainter {
     }
   }
 
-  Color _hexToColor(String hex) {
-    final hexCode = hex.replaceAll('#', '');
-    return Color(int.parse('FF$hexCode', radix: 16));
-  }
-
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
@@ -315,8 +310,8 @@ class Ball {
   double y;
   double dx;
   double dy;
-  String reverseColor;
-  String ballColor;
+  Color reverseColor;
+  Color ballColor;
 
   Ball({
     required this.x,
@@ -329,10 +324,10 @@ class Ball {
 }
 
 class PongWarsGameModel extends ChangeNotifier {
-  String dayColor = '#D9E8E3';
-  String dayBallColor = '#114C5A';
-  String nightColor = '#114C5A';
-  String nightBallColor = '#D9E8E3';
+  Color dayColor = const Color(0xFFD9E8E3);
+  Color dayBallColor = const Color(0xFF114C5A);
+  Color nightColor = const Color(0xFF114C5A);
+  Color nightBallColor = const Color(0xFFD9E8E3);
 
   int squareSize = 60;
   final double minSpeed = 5;
@@ -345,7 +340,7 @@ class PongWarsGameModel extends ChangeNotifier {
 
   int dayScore = 0;
   int nightScore = 0;
-  List<List<String>> squares = [];
+  List<List<Color>> squares = [];
   List<Ball> balls = [];
 
   PongWarsGameModel() {
