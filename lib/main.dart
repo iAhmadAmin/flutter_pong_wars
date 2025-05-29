@@ -132,7 +132,7 @@ class _PongWarsPageState extends State<PongWarsPage> {
                             Column(
                               children: [
                                 Text(
-                                  'Grid Size: $gridSize×$gridSize',
+                                  'Grid Size: $gridSize x $gridSize',
                                   style: const TextStyle(
                                     fontSize: 16,
                                     color: Color(0xFF172B36),
@@ -194,7 +194,7 @@ class _PongWarsPageState extends State<PongWarsPage> {
                         child: Column(
                           children: [
                             Text(
-                              'Flutter Version',
+                              '@iAhmadAmin | Flutter Version',
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Color(0xFF172B36),
@@ -291,7 +291,7 @@ class GamePainter extends CustomPainter {
       // Draw ball highlight
       final highlightPaint =
           Paint()
-            ..color = Colors.white.withOpacity(0.3)
+            ..color = Colors.white.withAlpha(30)
             ..style = PaintingStyle.fill;
       canvas.drawCircle(
         Offset(ballX - radius * 0.3, ballY - radius * 0.3),
